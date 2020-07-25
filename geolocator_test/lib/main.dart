@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Geolocation',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -62,13 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              _currentPosition == null
-                  ? 'Inicial: $_initialPosition'
-                  : 'Current: $_currentPosition',
+              _currentPosition == null ? 'não existe agora' : 'existe agora',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            SizedBox(
+              height: 30.0,
             ),
             Text(
-              _currentPosition == null ? 'nao existe agora' : 'existe agora',
-              style: Theme.of(context).textTheme.headline4,
+              _currentPosition == null
+                  ? 'Last known location: \n$_initialPosition'
+                  : 'Current location: \n$_currentPosition',
+              textAlign: TextAlign.center,
             ),
           ],
         ),
